@@ -1,0 +1,211 @@
+<title>娱乐项目</title>
+
+<div class="layui-card layadmin-header">
+	<div class="layui-breadcrumb" lay-filter="breadcrumb">
+		<a lay-href="">主页</a>
+		<a><cite>前台销售</cite></a>
+		<a><cite>娱乐项目</cite></a>
+	</div>
+</div>
+<div class="layui-fluid">
+	<div class="layui-card">
+		<div class="layui-card-header">新建订单</div>
+		<div class="layui-card-body" style="padding: 15px;">
+			<form class="layui-form" action="" lay-filter="component-form-group">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">条码:</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">名称:</label>
+						<div class="layui-input-inline">
+							<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input"
+								style="cursor:not-allowed" disabled>
+						</div>
+					</div>
+
+
+				</div>
+
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">DM选择</label>
+						<div class="layui-input-inline">
+							<select name="modules" lay-verify="required" lay-search="">
+								<option value="">直接选择或搜索选择</option>
+								<option value="1">layer</option>
+								<option value="2">form</option>
+								<option value="3">layim</option>
+								<option value="4">element</option>
+								<option value="5">laytpl</option>
+								<option value="6">upload</option>
+								<option value="7">laydate</option>
+								<option value="8">laypage</option>
+								<option value="9">flow</option>
+								<option value="10">util</option>
+								<option value="11">code</option>
+								<option value="12">tree</option>
+								<option value="13">layedit</option>
+								<option value="14">nav</option>
+								<option value="15">tab</option>
+								<option value="16">table</option>
+								<option value="17">select</option>
+								<option value="18">checkbox</option>
+								<option value="19">switch</option>
+								<option value="20">radio</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">游戏人数</label>
+					<div class="layui-input-block">
+						<div id="test-slider" class="layui-col-md4"></div>
+					</div>
+				</div>
+
+
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" lay-submit="" lay-filter="component-form-demo1">创建订单</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+
+
+			</form>
+		</div>
+	</div>
+	<div class="layui-card">
+		<div class="layui-card-header">活动订单</div>
+		<div class="layui-card-body">
+			<div class="layui-btn-container">
+				<form class="layui-form" action="">
+					<div class="layui-form-item">
+						<label class="layui-form-label">活动订单</label>
+						<div class="layui-input-inline">
+							<button class="layui-btn" lay-submit lay-filter="formDemo">修改订单</button>
+							<button class="layui-btn" lay-submit lay-filter="formDemo">取消订单</button>
+						</div>
+					</div>
+				</form>
+
+
+			</div>
+			<table class="layui-hide" id="test-table-page"></table>
+		</div>
+	</div>
+
+
+	<div class="layui-card">
+		<div class="layui-card-body">
+
+		</div>
+	</div>
+</div>
+
+<script>
+	layui.use(['admin', 'form', 'laydate', 'slider'], function () {
+		var $ = layui.$,
+			admin = layui.admin,
+			element = layui.element,
+			layer = layui.layer,
+			laydate = layui.laydate,
+			form = layui.form;
+		var table = layui.table;
+		var slider = layui.slider;
+
+		form.render(null, 'component-form-group');
+
+		laydate.render({
+			elem: '#LAY-component-form-group-date'
+		});
+
+
+		table.render({
+			elem: '#test-table-page',
+			url: './json/reception/entertainment.json',
+			cols: [
+				[{
+					type: 'radio'
+				}, {
+					field: 'order_id',
+					title: '订单号'
+				}, {
+					field: 'barcode_id',
+					title: '条码'
+				}, {
+					field: 'name',
+					title: '名称'
+				}, {
+					field: 'sell',
+					title: '售价'
+				}, {
+					field: 'people_number',
+					title: '人数'
+				}, {
+					field: 'paid_number',
+					title: '已支付'
+				}, {
+					field: 'host_name',
+					title: '主持人'
+				}, {
+					field: 'order_time',
+					title: '时间'
+				}, {
+					field: 'order_state',
+					title: '状态'
+				}]
+			],
+			page: true
+		});
+
+		/* 自定义验证规则 */
+		form.verify({
+			title: function (value) {
+				if (value.length < 5) {
+					return '标题至少得5个字符啊';
+				}
+			},
+			pass: [/(.+){6,12}$/, '密码必须6到12位'],
+			content: function (value) {
+				layedit.sync(editIndex);
+			}
+		});
+
+		//设置最大最小值
+		slider.render({
+			elem: '#test-slider',
+			min: 4 //最小值
+			,
+			max: 8 //最大值
+			,
+			input: true //输入框
+		});
+
+
+		/* 监听指定开关 */
+		form.on('switch(component-form-switchTest)', function (data) {
+			layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+				offset: '6px'
+			});
+			layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+		});
+
+		/* 监听提交 */
+		form.on('submit(component-form-demo1)', function (data) {
+			layer.alert(JSON.stringify(data.field), {
+				title: '最终的提交信息'
+			})
+			return false;
+		});
+	});
+</script>

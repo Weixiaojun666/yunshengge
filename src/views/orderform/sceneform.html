@@ -1,0 +1,89 @@
+<div class="layui-form" lay-filter="layuiadmin-form-useradmin" style="padding: 20px 0 0 0;">
+  <div class="layui-form-item">
+    <label class="layui-form-label">ID</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+	      <input type="text" name="id" value="{{ d.params.id|| '' }}"  placeholder="禁止填写" autocomplete="off" disabled class="layui-input layui-disabled">
+	    </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">条码</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="barcode" value="{{ d.params.barcode || '' }}" lay-verify="required" placeholder="请输入条码" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">名称</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="name" value="{{ d.params.name || '' }}" lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">进价</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="purchase" value="{{ d.params.purchase || '' }}" lay-verify="required" placeholder="请输入进价" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">售价</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="price" value="{{ d.params.price || '' }}" lay-verify="required" placeholder="请填写售价" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">会员价</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="member" value="{{ d.params.member || '' }}" lay-verify="required" placeholder="请填写会员价" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">积分</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="integral" value="{{ d.params.integral || '' }}" lay-verify="required" placeholder="请填写积分" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">佣点</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="commission" value="{{ d.params.commission || '' }}" lay-verify="required" placeholder="请填写佣点" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">合作商</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="partner" value="{{ d.params.partner || '' }}" lay-verify="required" placeholder="默认无" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">状态</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+        <input type="text" name="type" value="{{ d.params.type || '' }}" lay-verify="required" placeholder="默认正常" autocomplete="off" class="layui-input">
+      </script>
+    </div>
+  </div>
+
+  <div class="layui-form-item">
+    <label class="layui-form-label"></label>
+    <div class="layui-input-inline">
+      <input type="button" lay-submit lay-filter="LAY-user-front-submit" value="确认" class="layui-btn">
+    </div>
+  </div>
+</div>

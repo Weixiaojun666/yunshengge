@@ -1,0 +1,148 @@
+<div class="layui-form" lay-filter="layuiadmin-form-useradmin" style="padding: 20px 0 0 0;">
+
+    <div class="layui-col-md3">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">ID</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off" disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-col-md3">
+        <div class="layui-form-item">
+            <label class="layui-form-label">金额</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off"
+                           disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3">
+        <div class="layui-form-item">
+            <label class="layui-form-label">创建时间</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off"
+                           disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3">
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付时间</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off"
+                           disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3">
+        <div class="layui-form-item">
+            <label class="layui-form-label">渠道</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off"
+                           disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3">
+        <div class="layui-form-item">
+            <label class="layui-form-label">收银员</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off"
+                           disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3">
+        <div class="layui-form-item">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off"
+                           disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3">
+        <div class="layui-form-item">
+            <label class="layui-form-label">场次</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off"
+                           disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3">
+        <div class="layui-form-item">
+            <label class="layui-form-label">积分</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off"
+                           disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-md3">
+        <div class="layui-form-item">
+            <label class="layui-form-label">返佣</label>
+            <div class="layui-input-inline">
+                <script template type="text/html">
+                    <input type="text" name="id" value="{{ d.params.id|| '' }}" placeholder="禁止填写"
+                           autocomplete="off"
+                           disabled class="layui-input layui-disabled">
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+    <table class="layui-hide" id="test-table-page" lay-filter="test-table-page"></table>
+</div>
+<script>
+    layui.use(['admin', 'table'], function () {
+        var $ = layui.$,
+            admin = layui.admin,
+            view = layui.view,
+            table = layui.table,
+            form = layui.form;
+
+        table.render({
+            elem: '#test-table-page'
+            , url: './api/merchandisegame_s'
+            , toolbar: '#toolbar'
+            , cols: [[
+                {type: 'radio'}
+                , {field: 'id', title: 'id'}
+                , {field: 'barcode', title: '条码'}
+                , {field: 'quantity', title: '数量'}
+            ]]
+            , page: true
+        });
+    })
+</script>

@@ -1,0 +1,329 @@
+<title>设置我的资料</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>个人中心</cite></a>
+        <a><cite>我的资料</cite></a>
+    </div>
+</div>
+<div class="layui-fluid">
+    <script lay-url="./api/userinfo" template type="text/html">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md8">
+                <div class="layui-card">
+                    <div class="layui-card-header">设置我的资料</div>
+                    <div class="layui-card-body">
+
+                        <div class="layui-form" lay-filter="">
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">角色</label>
+                                <div class="layui-input-inline">
+
+                                    <input type="text" name="barcode" value="{{ d.data.role || '' }}"
+                                           lay-verify="required"
+                                           placeholder="禁止修改" autocomplete="off" disabled
+                                           class="layui-input layui-disabled">
+
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">姓名</label>
+                                <div class="layui-input-inline">
+
+                                    <input type="text" name="barcode" value="{{ d.data.username || '' }}"
+                                           lay-verify="required" placeholder="禁止修改" autocomplete="off" disabled
+                                           class="layui-input layui-disabled">
+
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">管理ID</label>
+                                <div class="layui-input-inline">
+
+                                    <input type="text" name="barcode" value="{{ d.data.adminid || '' }}"
+                                           lay-verify="required"
+                                           placeholder="禁止修改" autocomplete="off" disabled
+                                           class="layui-input layui-disabled">
+
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">用户名</label>
+                                <div class="layui-input-inline">
+
+                                    <input type="text" name="barcode" value="{{ d.data.nickname || '' }}"
+                                           lay-verify="required" placeholder="禁止修改" autocomplete="off" disabled
+                                           class="layui-input layui-disabled">
+
+                                </div>
+                            </div>
+
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">性别</label>
+                                <div class="layui-input-inline">
+
+                                    <input type="text" name="sex" value="{{ d.data.sex || '' }}" lay-verify="required"
+                                           placeholder="禁止修改" autocomplete="off" disabled
+                                           class="layui-input layui-disabled">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">手机号</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="phone" value="{{ d.data.phone || '' }}"
+                                           lay-verify="required"
+                                           placeholder="禁止修改" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">绑定微信</label>
+                                <div class="layui-input-inline">
+
+                                    <input type="text" name="wxid" value="{{ d.data.wxid || '' }}" lay-verify="required"
+                                           placeholder="禁止修改" autocomplete="off" class="layui-input">
+
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">银行卡号</label>
+                                <div class="layui-input-inline">
+
+                                    <input type="text" name="yhcard" value="{{ d.data.yhcard || '' }}"
+                                           lay-verify="required"
+                                           placeholder="禁止修改" autocomplete="off" class="layui-input">
+
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">注册时间</label>
+                                <div class="layui-input-inline">
+
+                                    <input type="text" name="time" value="{{ d.data.time || '' }}" lay-verify="required"
+                                           placeholder="禁止修改" autocomplete="off" disabled
+                                           class="layui-input layui-disabled">
+
+                                </div>
+                            </div>
+                            <div class="layui-form-item layui-form-text">
+                                <label class="layui-form-label">备注</label>
+                                <div class="layui-input-block">
+                                    <textarea name="remarks" placeholder="请输入内容" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="setmyinfo">确认修改</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重新填写</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        <table class="layui-hide" id="table"></table>
+        <div class="layui-col-md4">
+            <div class="layui-card">
+                <div class="layui-card-header">会员信息</div>
+                <div class="layui-card-body" pad15>
+                    <div class="layui-form" lay-filter="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">会员ID</label>
+                            <div class="layui-input-inline">
+                                <input autocomplete="off" class="layui-input layui-disabled" disabled
+                                       lay-verify="required"
+                                       name="memberid" placeholder="未绑定" type="text"
+                                       value="{{ d.data.memberid || '' }}">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">会员等级</label>
+                            <div class="layui-input-inline">
+                                <input autocomplete="off" class="layui-input layui-disabled" disabled
+                                       lay-verify="required"
+                                       name="grade" placeholder="未绑定" type="text" value="{{ d.data.grade || '' }}">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">会员积分</label>
+                            <div class="layui-input-inline">
+                                <input autocomplete="off" class="layui-input layui-disabled" disabled
+                                       lay-verify="required"
+                                       name="integral" placeholder="未绑定" type="text"
+                                       value="{{ d.data.integral || '' }}">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">余额</label>
+                            <div class="layui-input-inline">
+                                <input autocomplete="off" class="layui-input layui-disabled" disabled
+                                       lay-verify="required"
+                                       name="balance" placeholder="未绑定" type="text"
+                                       value="{{ d.data.balance || '' }}">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">会员余额</label>
+                            <div class="layui-input-inline">
+                                <input autocomplete="off" class="layui-input layui-disabled" disabled
+                                       lay-verify="required"
+                                       name="vbalance" placeholder="未绑定" type="text"
+                                       value="{{ d.data.vbalance || '' }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-card">
+                <div class="layui-card-header">兼职信息</div>
+                <div class="layui-card-body">
+
+                    <div class="layui-form" lay-filter="">
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">评价分</label>
+                            <div class="layui-input-inline">
+                                <input autocomplete="off" class="layui-input layui-disabled" disabled
+                                       lay-verify="required"
+                                       name="assess" placeholder="未绑定" type="text" value="{{ d.data.assess || '' }}">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">余额</label>
+                            <div class="layui-input-inline">
+                                <input autocomplete="off" class="layui-input layui-disabled" disabled
+                                       lay-verify="required"
+                                       name="jbalance" placeholder="未绑定" type="text"
+                                       value="{{ d.data.jbalance || '' }}">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">介绍人</label>
+                            <div class="layui-input-inline">
+                                <input autocomplete="off" class="layui-input layui-disabled" disabled
+                                       lay-verify="required"
+                                       name="partner" placeholder="未绑定" type="text"
+                                       value="{{ d.data.partner || '' }}">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="layui-card">
+                <div class="layui-card-header">杂项</div>
+                <div class="layui-card-body" pad15>
+                    <form name="form1" class="layui-form" action="./api/ordertmp_i" lay-filter="component-form-group"
+                          target="nm_iframe" id="form1" onsubmit="salse();">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <button type="reset" class="layui-btn layui-btn-primary">修改密码</button>
+<!--                                <button type="reset" class="layui-btn layui-btn-primary">离职</button>-->
+                                <button type="reset" class="layui-btn layui-btn-primary">登录日志</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </script>
+</div>
+<script>
+    layui.use('set', layui.factory('set'));
+</script>
+<script>
+    layui.use(['admin', 'form', 'laydate', 'slider'], function () {
+        var $ = layui.$,
+            admin = layui.admin,
+            element = layui.element,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            form = layui.form;
+        var table = layui.table;
+        var slider = layui.slider;
+
+        form.render(null, 'component-form-group');
+
+        laydate.render({
+            elem: '#LAY-component-form-group-date'
+        });
+
+        table.render({
+            elem: '#table',
+            url: './json/sales/table1.json',
+            toolbar: '#toolbar1',
+            totalRow: true,
+            cols: [
+                [{
+                    type: 'radio'
+                }, {
+                    field: 'id',
+                    title: 'id',
+                    totalRowText: '合计'
+                }, {
+                    field: 'commodity',
+                    title: '时间'
+                }, {
+                    field: 'name',
+                    title: 'ip'
+                }, {
+                    field: 'price',
+                    title: '状态'
+                }]
+            ],
+            page: true
+        });
+
+        /* 自定义验证规则 */
+        form.verify({
+            title: function (value) {
+                if (value.length < 5) {
+                    return '标题至少得5个字符啊';
+                }
+            },
+            pass: [/(.+){6,12}$/, '密码必须6到12位'],
+            content: function (value) {
+                layedit.sync(editIndex);
+            }
+        });
+
+        //设置最大最小值
+        slider.render({
+            elem: '#test-slider',
+            min: 4 //最小值
+            ,
+            max: 8 //最大值
+            ,
+            input: true //输入框
+        });
+
+
+        /* 监听指定开关 */
+        form.on('switch(component-form-switchTest)', function (data) {
+            layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+                offset: '6px'
+            });
+            layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+        });
+
+        /* 监听提交 */
+        form.on('submit(component-form-demo1)', function (data) {
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            })
+            return false;
+        });
+    });
+</script>

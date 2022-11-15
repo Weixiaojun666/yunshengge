@@ -1,0 +1,87 @@
+<!--<script type="text/javascript">-->
+<!--  	function focusNextInput(thisInput) {-->
+<!--  		var inputs = document.getElementsByTagName("input");-->
+<!--  		for (var i = 0; i < inputs.length; i++) {-->
+
+<!--  			if (i == (inputs.length - 1)) { // 如果是最后一个，则焦点回到第一个             -->
+<!--  				inputs[0].focus();-->
+<!--  				break;-->
+<!--  			} else if (thisInput == inputs[i]) {-->
+<!--  				inputs[i + 1].focus();-->
+<!--  				break;-->
+<!--  			}-->
+<!--  		}-->
+<!--  	}-->
+<!--  </script>-->
+
+<!--<script type="text/html" template>-->
+<!--  <ul class="layui-row layui-col-space10">-->
+<!--  	<li class="layui-col-xs6">-->
+<!--  		<div class="layadmin-backlog-body">-->
+<!--  			<h3>订单编号</h3>-->
+<!--  			<p><cite>-->
+<!--  					<font color="#009688">{{ d.params.orderid|| '' }}</font>-->
+<!--  				</cite></p>-->
+<!--  		</div>-->
+<!--  	</li>-->
+<!--  	<li class="layui-col-xs6">-->
+<!--  		<div class="layadmin-backlog-body">-->
+<!--  			<h3>创建时间</h3>-->
+<!--  			<p><cite>-->
+<!--  					<font color="#009688">{{ d.params.creation|| '' }}</font>-->
+<!--  				</cite></p>-->
+<!--  		</div>-->
+<!--  	</li>-->
+<!--  	<li class="layui-col-xs6">-->
+<!--  		<div class="layadmin-backlog-body">-->
+<!--  			<h3>金额</h3>-->
+<!--  			<p><cite>{{ d.params.amount| '' }}</cite></p>-->
+<!--  		</div>-->
+<!--  	</li>-->
+<!--  	<li class="layui-col-xs6">-->
+<!--  		<div class="layadmin-backlog-body">-->
+<!--  			<h3>会员金额</h3>-->
+<!--  			<p><cite>{{ d.params.vamount|| '' }}</cite></p>-->
+<!--  		</div>-->
+<!--  	</li>-->
+<!--  </ul>-->
+
+<!--</script>-->
+
+  <div class="layui-form" lay-filter="layuiadmin-form-useradmin" style="padding: 20px 0 0 0;">
+  	<!--  <div class="layui-form-item">
+    <label class="layui-form-label">支付方式</label>
+    <div class="layui-input-inline">
+      <script type="text/html" template>
+	      <input type="text" name="id" value="{{ d.params.id|| '' }}"  placeholder="禁止填写" autocomplete="off" disabled class="layui-input layui-disabled">
+
+    </div>
+  </div> -->
+  	<!--  <div class="layui-form-item">
+  	<label class="layui-form-label">介绍人</label>
+  	<div class="layui-input-inline">
+  		<script type="text/html" template>
+  			<input type="text" name="purchase" value="{{ d.params.purchase || '' }}" lay-verify="required"
+  				placeholder="请输入介绍人ID" autocomplete="off" class="layui-input"  onkeypress="if(event.keyCode==13) focusNextInput(this);">
+
+  	</div>
+  </div> -->
+  	<div class="layui-col-md9">
+  		<div class="layui-form-item">
+  			<label class="layui-form-label">扫码</label>
+  			<div class="layui-input-inline">
+
+  					<input type="text" name="price" lay-verify="required" placeholder="请扫码"
+  						autocomplete="off" class="layui-input" >
+  			</div>
+  		</div>
+  	</div>
+  	<div class="layui-col-md3">
+  		<div class="layui-form-item">
+  			<label class="layui-form-label"></label>
+  			<div class="layui-input-inline">
+  				<input type="button" lay-submit lay-filter="LAY-user-front-submit" value="确认" class="layui-btn">
+  			</div>
+  		</div>
+  	</div>
+  </div>

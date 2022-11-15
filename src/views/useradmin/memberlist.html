@@ -1,0 +1,171 @@
+<title>普通商品</title>
+
+<div class="layui-card layadmin-header">
+	<div class="layui-breadcrumb" lay-filter="breadcrumb">
+		<a lay-href="">主页</a>
+		<a><cite>用户管理</cite></a>
+		<a><cite>会员管理</cite></a>
+	</div>
+</div>
+
+<div class="layui-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-body">
+					<div class="layui-btn-container">
+
+					</div>
+					<script type="text/html" id="toolbar">
+						<div class="layui-btn-container">
+							<button class="layui-btn layui-btn-primary" data-type="add">新增</button>
+						</div>
+					</script>
+					<script type="text/html" id="bar">
+						<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+					</script>
+					<table class="layui-hide" id="test-table-page" lay-filter="test-table-page"></table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	layui.use(['admin', 'table'], function () {
+		var $ = layui.$,
+			admin = layui.admin,
+			view = layui.view,
+			table = layui.table,
+			form = layui.form;
+
+		table.render({
+			elem: '#test-table-page',
+			url: './api/useradminmember_s',
+			toolbar: '#toolbar',
+			cols: [
+				[{
+					type: 'radio',
+					fixed: 'left'
+				}, {
+					field: 'userid',
+					width: 80,
+					title: 'ID',
+					sort: true
+				}, {
+					field: 'name',
+					title: '姓名'
+				}, {
+					field: 'sex',
+					title: '性别'
+				}, {
+					field: 'phone',
+					title: '手机号'
+				}, {
+					field: 'wechat',
+					title: '微信'
+				}, {
+					field: 'balance',
+					title: '余额'
+				}, {
+					field: 'integral',
+					title: '会员积分'
+				}, {
+					field: 'vbalance',
+					title: '会员余额'
+				}, {
+					field: 'grade',
+					title: '会员等级'
+				}, {
+					field: 'partner',
+					title: '介绍人'
+				}, {
+					field: 'time',
+					title: '加入时间',
+					sort: true
+				}, {
+					fixed: 'right',
+					title: '操作',
+					toolbar: '#bar',
+					width: 150
+				}]
+			],
+			page: true
+		});
+		var active = {
+			add: function () {
+				admin.popup({
+					title: '添加用户',
+					area: ['500px', '450px'],
+					id: 'LAY-popup-user-add',
+					success: function (layero, index) {
+						view(this.id).render('useradmin/memberform').done(function () {
+							form.render(null, 'layuiadmin-form-useradmin');
+
+							//开启提交
+							form.on('submit(LAY-user-front-submit)', function (data) {
+								var field = data.field; //获取提交的字段
+
+								//提交 Ajax 成功后，关闭当前弹层并重载表格
+								admin.req({
+									url: './api/useradminmember_i',
+									type: 'get',
+									dataType: 'json',
+									data: field,
+									success: function (result) {
+										layui.table.reload(
+											'test-table-page'
+										); //重载表格
+										layer.close(
+											index); //执行关闭  
+									}
+								});
+							});
+						});
+					}
+				});
+			},
+		};
+
+
+		table.on('tool(test-table-page)', function (obj) {
+			var data = obj.data;
+
+			admin.popup({
+				title: '编辑用户',
+				area: ['420px', '450px'],
+				id: 'LAY-popup-user-add',
+				success: function (layero, index) {
+					view(this.id).render('useradmin/memberform', data).done(
+						function () {
+							form.render(null, 'layuiadmin-form-admin');
+
+							//提交
+							form.on('submit(LAY-user-front-submit)', function (data) {
+								var field = data.field; //获取提交的字段
+								//提交 Ajax 成功后，关闭当前弹层并重载表格
+								admin.req({
+									url: './api/useradminmember_u',
+									type: 'get',
+									dataType: 'json',
+									data: field,
+									success: function (result) {
+										layui.table.reload(
+											'test-table-page'
+										); //重载表格
+										layer.close(
+											index); //执行关闭  
+									}
+								});
+								layui.table.reload('test-table-page'); //重载表格
+								layer.close(index); //执行关闭 
+							});
+						});
+				}
+			});
+		});
+		$('.layui-btn-container .layui-btn').on('click', function () {
+			var type = $(this).data('type');
+			active[type] ? active[type].call(this) : '';
+		});
+	});
+</script>

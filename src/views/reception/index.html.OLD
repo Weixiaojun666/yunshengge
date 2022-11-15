@@ -1,0 +1,85 @@
+<title>收银</title>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>收银</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md11">
+          <div class="layui-card">
+        <div class="layui-card-body">
+          <form class="layui-form" action="">
+           <div class="layui-form-item">
+			<label class="layui-form-label">扫码输入</label>
+			    <div class="layui-input-inline">
+				<input type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input">
+		</div>
+			 
+			  <button class="layui-btn" lay-submit lay-filter="formDemo">清空</button>
+			  <button class="layui-btn" lay-submit lay-filter="formDemo">删除</button>
+			  <button class="layui-btn" lay-submit lay-filter="formDemo">改量</button>
+			  <button class="layui-btn" lay-submit lay-filter="formDemo">挂单</button>
+			  
+			 </div> 
+            </form>
+           </div> 
+        </div>
+   
+    
+      <div class="layui-card">
+        <div class="layui-card-body">
+          <div class="layui-btn-container">
+        
+        <br>
+        <br>
+        
+        <br>
+        <br>
+        <br>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+          </div>
+          <table class="layui-hide" id="test-table-page"></table>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+    </div>
+    <div class="layui-col-md1">
+        <div class="layui-card">
+        <div class="layui-card-body">
+          <form class="layui-form" action="">
+           <div class="layui-form-item">
+			<label class="layui-form-label">特殊商品</label>
+			  <button class="layui-btn" lay-submit lay-filter="formDemo">桌游</button>
+			  <button class="layui-btn" lay-submit lay-filter="formDemo">剧本杀</button>
+			  <button class="layui-btn" lay-submit lay-filter="formDemo">酒水</button>
+			  <button class="layui-btn" lay-submit lay-filter="formDemo">无码商品</button>
+			  
+			 </div> 
+            </form>
+           </div> 
+        </div>
+    
+    
+    </div>
+  </div>

@@ -1,0 +1,111 @@
+<title>主页</title>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+  </div>
+</div>
+
+<div class="layui-fluid">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-sm6 layui-col-md3">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          营业额
+          <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
+        </div>
+        <div class="layui-card-body layuiadmin-card-list">
+          <p class="layuiadmin-big-font">666</p>
+          <p>
+            月营业额
+            <span class="layuiadmin-span-color">88888 元 <i class="layui-icon">&#xe66c;</i></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm6 layui-col-md3">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          开场数
+          <span class="layui-badge layui-bg-cyan layuiadmin-badge">日</span>
+        </div>
+        <div class="layui-card-body layuiadmin-card-list">
+          <p class="layuiadmin-big-font">5</p>
+          <p>
+            月开场数
+            <span class="layuiadmin-span-color">56 场 <i class="layui-icon">&#xe650;</i></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm6 layui-col-md3">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          客流量
+          <span class="layui-badge layui-bg-green layuiadmin-badge">日</span>
+        </div>
+        <div class="layui-card-body layuiadmin-card-list">
+
+          <p class="layuiadmin-big-font">19</p>
+          <p>
+            月客流量
+            <span class="layuiadmin-span-color">999 <i class="layui-icon layui-icon-heart"></i></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm6 layui-col-md3">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          活跃用户
+          <span class="layui-badge layui-bg-orange layuiadmin-badge">月</span>
+        </div>
+        <div class="layui-card-body layuiadmin-card-list">
+
+          <p class="layuiadmin-big-font">66</p>
+          <p>
+            最近一个月
+            <span class="layuiadmin-span-color">15% <i class="layui-icon">&#xe770;</i></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm12">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          访问量
+          <!-- <div class="layui-btn-group layuiadmin-btn-group">
+            <button class="layui-btn layui-btn-primary layui-btn-xs">去年</button>
+            <button class="layui-btn layui-btn-primary layui-btn-xs">今年</button>
+          </div> -->
+        </div>
+        <div class="layui-card-body">
+          <div class="layui-row">
+            <div class="layui-col-sm9">
+              <div class="layui-carousel layadmin-carousel layadmin-dataview" data-anim="fade"
+                lay-filter="LAY-index-pagetwo">
+                <div carousel-item id="LAY-index-pagetwo">
+                  <div><i class="layui-icon layui-icon-loading1 layadmin-loading"></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-col-sm3">
+
+              <div class="layui-carousel layadmin-carousel layadmin-dataview" data-anim="fade"
+                lay-filter="LAY-index-pageone">
+                <div carousel-item id="LAY-index-pageone">
+                  <div><i class="layui-icon layui-icon-loading1 layadmin-loading"></i></div>
+                </div>
+              </div>
+
+              <div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <script>
+        layui.use('sample', layui.factory('sample'));
+      </script>
