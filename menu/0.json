@@ -1,0 +1,38 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "title": "主页",
+            "icon": "layui-icon-home",
+            "jump": "/index"
+        },
+        {
+            "name": "useradmin",
+            "title": "数据",
+            "icon": "layui-icon-senior",
+            "list": [
+				{
+                    "name": "list",
+                    "title": "订单",
+                    "jump": "/orderform/pointslist"
+                },{
+                    "name": "list",
+                    "title": "场次",
+                    "jump": "/orderform/scenelist"
+                },
+                {
+                    "name": "layim",
+                    "title": "提现",
+                    "jump": "/orderform/withdrawlist"
+                }
+            ]
+        },
+       {
+            "name": "component",
+            "title": "个人中心",
+            "icon": "layui-icon-friends",
+            "jump": "useradmin/info"
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "title": "系统主页",
+            "icon": "layui-icon-home",
+            "jump": "/homepage"
+        },
+        {
+            "name": "index",
+            "title": "销售前台",
+            "icon": "layui-icon-cart"
+        },
+        {
+            "name": "merchandise",
+            "title": "商品管理",
+            "icon": "layui-icon-list",
+            "list": [
+                {
+                    "name": "game",
+                    "title": "娱乐项目",
+					"jump": "/merchandise/gamelist"
+                },
+                {
+                    "name": "ordinary",
+                    "title": "普通商品",
+					"jump": "/merchandise/ordinarylist"
+                },
+                {
+                    "name": "member",
+                    "title": "会员套餐",
+					"jump": "/merchandise/memberlist"
+                }
+            ]
+        },
+        {
+            "name": "orders",
+            "title": "数据分析",
+            "icon": "layui-icon-senior",
+            "list": [
+                {
+                    "name": "list",
+                    "title": "订单",
+                    "jump": "/orderform/pointslist"
+                },{
+                    "name": "list",
+                    "title": "场次",
+                    "jump": "/orderform/scenelist"
+                },
+                {
+                    "name": "layim",
+                    "title": "提现",
+                    "jump": "/orderform/withdrawlist"
+                }
+            ]
+        },
+        {
+            "name": "useradmin",
+            "title": "用户管理",
+            "icon": "layui-icon-user",
+            "list": [
+				{
+                    "name": "list",
+                    "title": "会员管理",
+                     "jump": "useradmin/memberlist"
+                },
+                {
+                    "name": "list",
+                    "title": "职员管理",
+                    "jump": "useradmin/adminlist"
+                }
+            ]
+        },
+        {
+            "name": "component",
+            "title": "个人中心",
+            "icon": "layui-icon-friends",
+            "jump": "useradmin/info"
+        }
+    ]
+}
